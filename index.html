@@ -429,9 +429,74 @@
     <!-- модальное окно -->
 
     <div class="backdrop is-hidden" data-modal>
-      <div class="modal">
-        <button data-modal-close>закрыть</button>
-      </div>
+      <form class="modal">
+        <div class="form-heading">
+          <b>Оставьте свои данные, мы вам перезвоним</b>
+        </div>
+
+        <label class="form-field">
+          <input type="text" class="form-input" name="name" placeholder=" " />
+          <span class="form-label">Имя</span>
+          <svg class="form-icon">
+            <use href="./images/symbol-defs.svg#person"></use>
+          </svg>
+        </label>
+
+        <label class="form-field">
+          <input type="tel" class="form-input" name="tel" placeholder=" " />
+          <span class="form-label">Телефон</span>
+          <svg class="form-icon">
+            <use href="./images/symbol-defs.svg#phone"></use>
+          </svg>
+        </label>
+
+        <label class="form-field">
+          <input type="email" class="form-input" name="mail" placeholder=" " />
+          <span class="form-label">Почта</span>
+          <svg class="form-icon">
+            <use href="./images/symbol-defs.svg#email"></use>
+          </svg>
+        </label>
+
+        <div class="form-field">
+          <label for="comment">
+            <span class="form-label-comment">Комментарий</span>
+          </label>
+          <textarea
+            name="comment"
+            id="comment"
+            rows="5"
+            placeholder=" "
+            class="form-input"
+          ></textarea>
+        </div>
+
+        <div class="form-center">
+          <div class="form-checkbox">
+            <label class="field">
+              <input class="checkbox" type="checkbox" name="topic" value="js" />
+              <span class="icon"></span>
+              <span class="label">Соглашаюсь с рассылкой и принимаю
+              <a href="/" class="contract">Условия договора</a></label>
+              </label></span>
+            </label>
+
+            <!-- <label class="form-field">
+              <input type="checkbox" name="policy" />
+              Соглашаюсь с рассылкой и принимаю
+              <a href="/" class="contract">Условия договора</a></label>
+            </label> -->
+          </div>
+
+          <button class="button form-button" type="submit">Отправить</button>
+        </div>
+
+        <button class="close-button" data-modal-close="">
+          <svg class="form-icon-close">
+            <use href="./images/symbol-defs.svg#close"></use>
+          </svg>
+        </button>
+      </form>
     </div>
 
     <!-- скрипт закрепленного хэдэра -->
