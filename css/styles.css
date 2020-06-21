@@ -819,10 +819,10 @@ footer {
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* .backdrop.is-hidden {
+.backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
-} */
+}
 
 .backdrop.is-hidden  .modal {
   transform: translate(-50%,-50%) scale(1.2);
@@ -837,7 +837,6 @@ footer {
 
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* height: 580px; */
   width: 528px;
   background-color: var(--white-color);
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12);
@@ -882,32 +881,78 @@ footer {
   background-color: var(--footer-bg-color);
   color: var(--white-color);
 
-  border: 1px solid rgba(33, 33, 33, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-form-input:hover,
+.footer-form-input:focus {
+  border: 1px solid var(--accent-color);
 }
 
 .form-field {
   position: relative;
-  /* outline: 1px solid tomato; */
+  display: block;
+  margin-bottom: 30px;
 }
 
 .form-input {
   width: 100%;
+  margin: 0;
   padding: 10px 35px;
-  margin-bottom: 20px;
+  padding-left: 40px;
+  font: inherit;
+  
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+}
+
+.form-input:focus,
+.form-input-comment:focus  {
+   outline: 1px solid var(--accent-color);
+   border-color: var(--accent-color);
+}
+.form-input-comment {
+  width: 100%;
+  margin: 0;
+  padding: 10px 35px;
+  padding-left: 40px;
+  font: inherit;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
 }
 
 .form-icon {
   position: absolute;
-  top: 11%;
+  top: 50%;
   left: 16px;
-  
+
   transform: translateY(-50%);
 
+  display: inline-block;
   width: 18px;
   height: 18px;
-  fill: black;
+  fill: #212121;
+
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.form-field:focus-within > .form-icon,
+.form-field:focus-within {
+  fill: #2196f3;
+  color: var(--accent-color);
+}
+
+.form-field:focus-within > .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+  transform: translateY(-44px) translateX(-30px);
+}
+
 
 .form-icon-mail {
   position: absolute;
@@ -928,17 +973,18 @@ footer {
   width: 18px;
   height: 26px;
 
-  /* fill: var(--social-network-color); */
-
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);}
-
-.form-label {
-  position: absolute;
-  top: 11%;
-  left: 42px;
-  
-  transform: translateY(-50%);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+  .form-label {
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  transform: translateY(-50%);
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 
 .form-label-mail {
   position: absolute;
@@ -948,13 +994,30 @@ footer {
   transform: translateY(-50%);
 }
 
+.form-field:focus-within > .form-label-comment,
+.form-input-comment:not(:placeholder-shown) + .form-label-comment {
+  transform: translateY(-36px) translateX(-7px);
+}
+
+  .form-label {
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  transform: translateY(-50%);
+
+  transition: transform 250ms linear;
+}
+
 .form-label-comment {
   position: absolute;
   top: 11%;
   left: 16px;
-  
   transform: translateY(-50%);
+
+  transition: transform 250ms linear;
 }
+
+
 
 .contract {
   color: var(--accent-color);
@@ -991,7 +1054,12 @@ footer {
   background: var(--white-color);
 }
 
-/* тест */
+.close-button:focus,
+.close-button:hover {
+  fill: var(--accent-color);
+}
+
+/* checkbox */
 
 .checkbox {
   /* -webkit-appearance: none;
@@ -1009,7 +1077,7 @@ footer {
   overflow: hidden;
 }
 
-.icon {
+.checkbox-icon {
   display: inline-block;
   width: 15px;
   height: 15px;
@@ -1021,7 +1089,7 @@ footer {
   transition: transform 250ms linear;
 }
 
-.checkbox:checked + .icon {
+.checkbox:checked + .checkbox-icon {
   transform: scale(1.2);
   border-color: transparent;
   background-image: url('../images/icon-check.svg');
@@ -1029,10 +1097,10 @@ footer {
   background-origin: border-box;
 }
 
-.label {
+.checkbox-label {
   transition: transform 250ms linear;
 }
 
-.checkbox:checked ~ .label {
+.checkbox:checked ~ .checkbox-label {
   transform: translateX(20px);
 }
